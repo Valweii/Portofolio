@@ -47,14 +47,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Dynamic navigation background
+// Dynamic navigation background (with smooth transitions)
 const nav = document.querySelector('nav');
+
+if (nav) {
+    // Add CSS transitions for a smoother background change
+    nav.style.transition = 'background-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease';
+    // In case Tailwind is used, these help too (harmless otherwise)
+    nav.classList.add('transition-colors', 'duration-300', 'ease-out');
+}
+
+// Throttle updates with requestAnimationFrame to avoid jank on scroll
+let navSolid = false;
+let navTicking = false;
+
+function updateNavBackground() {
+    if (!nav) return;
+    const shouldBeSolid = window.scrollY > 50;
+
+    if (shouldBeSolid !== navSolid) {
+        if (shouldBeSolid) {
+            nav.classList.add('bg-black', 'bg-opacity-90', 'shadow-lg');
+            // Subtle blur behind the navbar if supported (Tailwind or custom CSS)
+            nav.classList.add('backdrop-blur');
+        } else {
+            nav.classList.remove('bg-black', 'bg-opacity-90', 'shadow-lg', 'backdrop-blur');
+        }
+        navSolid = shouldBeSolid;
+    }
+    navTicking = false;
+}
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        nav.classList.add('bg-black', 'bg-opacity-90');
-    } else {
-        nav.classList.remove('bg-black', 'bg-opacity-90');
+    if (!nav) return;
+    if (!navTicking) {
+        navTicking = true;
+        requestAnimationFrame(updateNavBackground);
     }
 });
+
+// Initialize on load
+updateNavBackground();
+
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
