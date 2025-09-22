@@ -272,3 +272,9 @@ interactiveElements.forEach(el => {
 if ('ontouchstart' in window) {
     cursor.style.display = 'none';
 }
+
+window.history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
+    // Immediately set the scroll position at the very top
+    window.scrollTo(0, 0);
+});
