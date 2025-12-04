@@ -7,6 +7,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import financifyImage from "@/assets/financify.png";
+import c2cImage from "@/assets/c2c.png";
+import qrScannerImage from "@/assets/qr-scanner.png";
+import careerScopeImage from "@/assets/career-scope.png";
+import autocareImage from "@/assets/autocare.png";
 
 interface Project {
   id: string;
@@ -27,7 +32,7 @@ const projects: Project[] = [
     title: "Financify",
     category: "Web Development",
     year: "2024",
-    image: "./src/assets/financify.png",
+    image: financifyImage,
     description: "Personal Finance Tracker with PDF Mutation Input - A fully functional finance tracking web application with features like expense categorization, split bill, and transaction summaries.",
     longDescription: "Financify is a comprehensive personal finance management application that helps users track their expenses, categorize transactions, and manage their financial data. The application features PDF mutation input for easy transaction import, split bill functionality for shared expenses, and detailed transaction summaries. Built with security in mind, it uses AES-256-GCM encryption to protect sensitive financial data.",
     technologies: ["React", "Tailwind CSS", "Supabase", "AES-256-GCM Encryption", "Vite"],
@@ -39,7 +44,7 @@ const projects: Project[] = [
     title: "Created To Connect",
     category: "Web Development",
     year: "2024",
-    image: "./src/assets/c2c.png",
+    image: c2cImage,
     description: "Event Registration & Ticketing Platform - A full event registration website supporting ticketing, registration forms, and automated QR code generation.",
     longDescription: "Created To Connect is a complete event management platform that streamlines the event registration and ticketing process. The platform allows event organizers to create registration forms, manage ticket sales, and automatically generate QR codes for attendees. It provides a seamless experience for both organizers and participants, with real-time updates and automated confirmation emails.",
     technologies: ["React", "Tailwind CSS", "Supabase", "Next.js"],
@@ -51,7 +56,7 @@ const projects: Project[] = [
     title: "KKR QR Scanner",
     category: "Web Development",
     year: "2024",
-    image: "./src/assets/qr-scanner.png",
+    image: qrScannerImage,
     description: "Ticket Scanning & Attendance Verification - A dedicated web app for scanning event tickets generated from the Created To Connect website.",
     longDescription: "KKR QR Scanner is a specialized web application designed to work seamlessly with the Created To Connect platform. It enables event staff to quickly scan QR codes on tickets, verify attendee information, and track attendance in real-time. The application provides instant feedback on ticket validity and helps maintain accurate attendance records for events.",
     technologies: ["React", "Tailwind CSS", "Supabase"],
@@ -63,7 +68,7 @@ const projects: Project[] = [
     title: "CareerScope",
     category: "Machine Learning",
     year: "2024",
-    image: "./src/assets/career-scope.png",
+    image: careerScopeImage,
     description: "Computer Science Student Career Prediction Web Application - A web platform to showcase a machine learning model that predicts computer science career paths based on interest, technical skills, and user-provided attributes.",
     longDescription: "CareerScope is an intelligent career prediction platform that helps computer science students discover potential career paths. The application uses machine learning algorithms to analyze user interests, technical skills, and personal attributes to recommend suitable career options. It provides detailed insights into each recommended career path, including required skills, typical responsibilities, and growth opportunities in the field.",
     technologies: ["React.js", "Vite", "Tailwind CSS", "Machine Learning"],
@@ -74,7 +79,7 @@ const projects: Project[] = [
     title: "Autocare",
     category: "Web Development",
     year: "2023",
-    image: "/src/assets/autocare.png",
+    image: autocareImage,
     description: "Car Service Tracking Web Application - A web app that enables users to track car service history and receive automated service reminders.",
     longDescription: "Autocare is a comprehensive vehicle maintenance tracking application that helps car owners stay on top of their vehicle's service schedule. Users can log service history, track maintenance costs, and receive automated reminders for upcoming services. The application helps maintain vehicle health by ensuring timely maintenance and providing a complete service history record.",
     technologies: ["HTML", "CSS", "JavaScript", "Firebase"],

@@ -117,21 +117,7 @@ const Experience = () => {
                   <p className="text-muted-foreground">{exp.description}</p>
                 </div>
 
-                <div className="md:col-span-1 flex justify-end">
-                  <div
-                    className={`w-10 h-10 rounded-full border border-foreground flex items-center justify-center transition-all ${
-                      hoveredId === exp.id
-                        ? "bg-accent border-accent"
-                        : "bg-transparent"
-                    }`}
-                  >
-                    <ArrowUpRight
-                      className={`w-4 h-4 transition-colors ${
-                        hoveredId === exp.id ? "text-accent-foreground" : ""
-                      }`}
-                    />
-                  </div>
-                </div>
+                
               </div>
             </div>
           ))}
