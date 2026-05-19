@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Orpheus';
+  src: url('./assets/fonts/Orpheus\ Pro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('./assets/fonts/Afacad-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('./assets/fonts/Afacad-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('./assets/fonts/Afacad-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Afacad';
+  src: url('./assets/fonts/Afacad-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@theme {
+  /* Color */
+  --color-black: #000000;
+  --color-sage: #656D56;
+  --color-fwhite: #F8F5EE;
+  --color-sand: #BBB5A7;
+  --color-cloud: #D0D0CE;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.font-afacad {
+  font-family: 'Afacad';
+}
+
+.font-orpheus {
+  font-family: 'Orpheus';
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+::-scrollbar {
+  width: 0;
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
