@@ -52,7 +52,7 @@ export default function Section1() {
                 </div>
                 
                 {/* Call to Action Button */}
-                <div className='flex gap-2'>
+                <div className='flex flex-col md:flex-row gap-2'>
                     <button 
                         className="
                             mt-6 px-8 py-3.5 rounded-full 

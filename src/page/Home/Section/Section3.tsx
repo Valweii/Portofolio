@@ -99,13 +99,13 @@ import FrostedGlass from "../../../components/FrostedGlass"
     }, [selectedProject]);
 
     return (
-        <section id="projects" ref={containerRef} className="w-full h-fit bg-transparent flex flex-col justify-center items-center px-16 pt-16 relative">
+        <section id="projects" ref={containerRef} className="w-full h-fit bg-transparent flex flex-col justify-center items-center px-6 md:px-16 pt-24 md:pt-16 relative">
             <p className="text-4xl font-afacad font-bold text-white mb-8">Projects</p>
-            <div className="w-full h-full flex flex-wrap justify-center gap-2">
+            <div className="w-full h-full flex flex-wrap justify-center gap-4">
                 {projects.map((project, index) => (
                     <FrostedGlass 
                         key={index} 
-                        className="project-card w-[calc(50%-2rem)] h-fit p-4 rounded-2xl flex flex-col gap-2 cursor-pointer group"
+                        className="project-card w-full md:w-[calc(50%-1rem)] h-fit p-4 rounded-2xl flex flex-col gap-2 cursor-pointer group"
                         onClick={() => setSelectedProject(project)}
                     >
                         <p className="text-2xl font-afacad font-bold text-white">{project.title}</p>
@@ -126,7 +126,7 @@ import FrostedGlass from "../../../components/FrostedGlass"
                 <div ref={overlayRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onClick={() => setSelectedProject(null)}>
                     <div 
                         ref={modalRef}
-                        className="custom-scrollbar bg-zinc-900/90 border border-white/10 rounded-3xl p-8 max-w-3xl w-full flex flex-col gap-6 backdrop-blur-md shadow-2xl max-h-[90vh] overflow-y-auto" 
+                        className="custom-scrollbar bg-zinc-900/90 border border-white/10 rounded-3xl p-6 md:p-8 max-w-3xl w-full flex flex-col gap-6 backdrop-blur-md shadow-2xl max-h-[90vh] overflow-y-auto" 
                         onClick={(e) => e.stopPropagation()}
                         data-lenis-prevent="true"
                     >
@@ -140,10 +140,10 @@ import FrostedGlass from "../../../components/FrostedGlass"
                             </button>
                         </div>
                         
-                        <img className="w-3/5 mx-auto rounded-2xl max-h-96 object-cover" src={selectedProject.image} alt={selectedProject.title} />
+                        <img className="w-full md:w-3/5 mx-auto rounded-2xl max-h-96 object-cover" src={selectedProject.image} alt={selectedProject.title} />
                         
                         <div className="flex flex-col gap-4">
-                            <p className="custom-scrollbar text-xl text-white/80 font-afacad h-40 overflow-y-auto pr-4 whitespace-pre-line" data-lenis-prevent="true">{selectedProject.description}</p>
+                            <p className="custom-scrollbar text-lg md:text-xl text-white/80 font-afacad h-48 md:h-40 overflow-y-auto pr-2 md:pr-4 whitespace-pre-line" data-lenis-prevent="true">{selectedProject.description}</p>
                             
                             <div className="flex flex-wrap gap-4 mt-4 shrink-0 pb-4">
                                 {selectedProject.link && (

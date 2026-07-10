@@ -58,8 +58,8 @@ gsap.registerPlugin(ScrollTrigger);
     }, { scope: containerRef });
 
     return (
-        <section id="about" ref={containerRef} className="w-full h-fit min-h-screen bg-transparent flex justify-between items-center px-16">
-            <div className="w-1/2 h-full flex flex-col justify-center font-afacad text-white">
+        <section id="about" ref={containerRef} className="w-full h-fit min-h-screen bg-transparent flex flex-col md:flex-row justify-between items-center px-6 md:px-16 py-24 md:py-0">
+            <div className="w-full md:w-1/2 h-full flex flex-col justify-center font-afacad text-white">
                 <p className="text-4xl font-bold text-reveal">About Me</p>
                 <p className="text-reveal">I am a Computer Science major at Bina Nusantara University (Class of 2027) and a current IT Developer Intern at Healthy Go, focusing on engineering web and mobile applications.</p>
                 <p className="text-4xl font-bold mt-8 text-reveal">What do I bring to the table?</p>
@@ -69,7 +69,7 @@ gsap.registerPlugin(ScrollTrigger);
                     <li className="text-reveal"><span className="font-bold text-lg">Continuous Growth</span>: Fueled by a deep curiosity and a constant hunger to master new frameworks, refine my architecture, and push the boundaries of my digital craftsmanship</li>
                 </ul>
             </div>
-            <div className="w-1/2 h-full flex flex-col justify-center items-center px-12 tech-container">
+            <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-center md:px-12 tech-container mt-12 md:mt-0">
                 <p className="text-4xl font-bold text-white font-afacad text-reveal mb-4">Tech Stack</p>
                 <FrostedGlass className="text-reveal w-full h-fit p-4 rounded-2xl flex gap-4 flex-wrap" hover={false}>
                     {techStack.map((tech, index) => (

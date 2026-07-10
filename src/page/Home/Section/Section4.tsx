@@ -54,7 +54,7 @@ export default function Section4(){
     }, { scope: containerRef });
 
     return (
-        <section id="experience" ref={containerRef} className="w-full h-fit min-h-screen bg-transparent flex flex-col justify-center items-center p-16 font-afacad relative z-10 pt-20">
+        <section id="experience" ref={containerRef} className="w-full h-fit min-h-screen bg-transparent flex flex-col justify-center items-center px-6 md:px-16 py-24 md:py-16 font-afacad relative z-10">
             <p className="text-white font-afacad text-4xl">Experience</p>
             <div className="w-full flex flex-col mt-8">
                 {experiences.map((exp, index) => (
