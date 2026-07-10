@@ -5,11 +5,10 @@ import { useGSAP } from "@gsap/react";
 import FrostedGlass from "../components/FrostedGlass";
 import { whatsapp as WhatsappIcon, instagram as InstagramIcon, github as GithubIcon } from "../helpers/svg";
 
-const dummy = [
-    "Home",
-    "About",
-    "Contact",
-    "Projects"
+const navLinks = [
+    { name: "About", id: "about" },
+    { name: "Projects", id: "projects" },
+    { name: "Experience", id: "experience" }
 ]
 
 export default function Header (){
@@ -28,47 +27,30 @@ export default function Header (){
     
     useGSAP(() => {
         gsap.set('.navGrid', {
-            xPercent: -100,
+            x: 30,
             opacity: 0
         })
 
         gsap.set(overlayRef.current, { 
-            scaleY: 0, 
-            borderRadius: "0 0 100% 100%", 
-            transformOrigin: "top" 
+            xPercent: 100 
         })
 
         tl.current = gsap.timeline({ paused: true })
         
         tl.current.to(overlayRef.current, {
-            scaleY: 1,
-            ease: "sine.in",
-            duration: 0.9,
-            borderRadius: "0 0 0 0"
+            xPercent: 0,
+            ease: "power3.inOut",
+            duration: 0.5
         })
         tl.current.to('.navGrid', {
-            xPercent: 0,
+            x: 0,
             opacity: 1,
-            ease: "power4.out",
-            duration: 0.9,
-            stagger: {
-                amount: 0.1,
-                from: "random"
-            }
-        })
+            ease: "power3.out",
+            duration: 0.4,
+            stagger: 0.1
+        }, "-=0.2")
         
     }, { scope: overlayRef }) // No dependencies, runs once
-
-    //  Playback hook: Runs whenever mobileOpen changes
-    useGSAP(() => {
-        if (!tl.current) return;
-
-        if (mobileOpen) {
-            tl.current.play()
-        } else {
-            tl.current.reverse()
-        }
-    }, [mobileOpen]) // Dependency array controls playback
 
     useGSAP(() => {
         gsap.to('.header-reveal-box', {
@@ -115,25 +97,7 @@ export default function Header (){
                         </a>
                     </FrostedGlass>
                 </div>
-
-                <button onClick={() => setMobileOpen((v) => !v)} className="relative flex md:hidden border-2 border-fwhite rounded-md translate-y-[10%] justify-center items-center overflow-hidden">
-                    <svg className="w-10 m-auto" viewBox="0 0 15 15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 5H12V6H5V5ZM3 9H10V10H3V10Z" fill="#F8F5EE"/>
-                    </svg>
-                    <div className="header-reveal-box absolute inset-0 bg-fwhite z-10 pointer-events-none" />
-                </button>
             </header>
-
-            {/* Overlay */}
-            <div ref={overlayRef} className="h-screen w-screen fixed top-0 left-0 bg-sage z-40 flex justify-center items-center flex-wrap">
-                <div className="w-full h-fit flex flex-wrap justify-center gap-4 px-4">
-                    {dummy.map((item, index) => (
-                        <div key={index} className={`w-2/5 aspect-square overflow-hidden ${index%2 === 0 ? "translate-y-[25%]" : ""}`}>
-                            <span className="navGrid w-full h-full bg-black flex justify-center items-center text-2xl text-fwhite font-bold">{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
         </>
     )
 }
