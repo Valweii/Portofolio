@@ -39,18 +39,18 @@ export default function HoveredText({ text, icon="topRight", underline, classNam
         tl.to(".char1", {
             yPercent: -150,
             ease: "power4.inOut",
-            duration: 1.1,
+            duration: 0.9,
             stagger: {
-                amount: 1.1 / text.length,
+                amount: 0.9 / text.length,
                 from: "random"
             }
         }, 0)
         .to(".char2", {
             yPercent: 0,
             ease: "power4.inOut",
-            duration: 1.1,
+            duration: 0.9,
             stagger: {
-                amount: 1.1 / text.length,
+                amount: 0.9 / text.length,
                 from: "random"
             }
         }, 0)
@@ -59,7 +59,7 @@ export default function HoveredText({ text, icon="topRight", underline, classNam
             tl.to(".underline-progress", {
                 scaleX: 1,
                 ease: "power4.inOut",
-                duration: (1.1) + 1.1 / text.length
+                duration: (0.9) + 0.9 / text.length
             }, 0)
         }
 
@@ -68,24 +68,24 @@ export default function HoveredText({ text, icon="topRight", underline, classNam
                 yPercent: -150,
                 xPercent: 150,
                 ease: "power3.inOut",
-                duration: (1.1) + 1.1 / text.length
+                duration: (0.9) + 0.9 / text.length
             }, 0)
             .to(".arrow2", {
                 yPercent: 0,
                 xPercent: 0,
                 ease: "power3.inOut",
-                duration: (1.1) + 1.1 / text.length
+                duration: (0.9) + 0.9 / text.length
             }, 0)
         } else {
             tl.to(".arrow", {
                 xPercent: 150,
                 ease: "power3.inOut",
-                duration: (1.1) + 1.1 / text.length
+                duration: (0.9) + 0.9 / text.length
             }, 0)
             .to(".arrow2", {
                 xPercent: 0,
                 ease: "power3.inOut",
-                duration: (1.1) + 1.1 / text.length
+                duration: (0.9) + 0.9 / text.length
             }, 0)
         }
     }, { scope: containerRef, dependencies: [text, icon] })
