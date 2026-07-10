@@ -12,7 +12,7 @@ const navLinks = [
 ]
 
 export default function Header (){
-    const [mobileOpen, setMobileOpen] = useState(false)
+    const [mobileOpen, setMobileOpen] = useState(false);
     const overlayRef = useRef(null)
     const headerRef = useRef(null)
 
@@ -51,6 +51,16 @@ export default function Header (){
         }, "-=0.2")
         
     }, { scope: overlayRef }) // No dependencies, runs once
+
+    // Playback hook for mobile menu
+    useGSAP(() => {
+        if (!tl.current) return;
+        if (mobileOpen) {
+            tl.current.play();
+        } else {
+            tl.current.reverse();
+        }
+    }, [mobileOpen]);
 
     useGSAP(() => {
         gsap.to('.header-reveal-box', {
@@ -97,7 +107,67 @@ export default function Header (){
                         </a>
                     </FrostedGlass>
                 </div>
+
+                {/* Mobile Hamburger */}
+                <button 
+                    onClick={() => setMobileOpen(!mobileOpen)} 
+                    className="relative z-[100] flex md:hidden flex-col justify-center items-center w-8 h-8 space-y-2 focus:outline-none ml-auto"
+                >
+                    <span className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${mobileOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
+                    <span className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${mobileOpen ? 'opacity-0' : ''}`}></span>
+                    <span className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
+                </button>
             </header>
+
+            {/* Mobile Menu Overlay */}
+            <div ref={overlayRef} className="h-screen w-full md:hidden fixed top-0 right-0 bg-zinc-900/98 backdrop-blur-xl z-[90] flex flex-col justify-center items-center px-12">
+                <button 
+                    onClick={() => setMobileOpen(false)}
+                    className="absolute top-10 right-10 text-white hover:text-white/70 transition-colors"
+                >
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+
+                <div className="w-full flex flex-col gap-10 items-center">
+                    {navLinks.map((item, index) => (
+                        <div key={index} className="overflow-hidden">
+                            <span 
+                                className="navGrid block text-5xl text-white font-afacad font-bold cursor-pointer hover:text-white/60 transition-colors"
+                                onClick={() => {
+                                    scrollToSection(item.id);
+                                    setMobileOpen(false);
+                                }}
+                            >
+                                {item.name}
+                            </span>
+                        </div>
+                    ))}
+
+                    <div className="flex gap-6 mt-12 overflow-hidden">
+                        <div className="navGrid">
+                            <FrostedGlass className="p-4 rounded-2xl">
+                                <a href="https://www.instagram.com/valdricheag/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <InstagramIcon className="w-7 h-7 fill-fwhite hover:fill-[#C13584] transition-colors duration-200" />
+                                </a>
+                            </FrostedGlass>
+                        </div>
+                        <div className="navGrid">
+                            <FrostedGlass className="p-4 rounded-2xl">
+                                <a href="https://api.whatsapp.com/send?phone=6287819970882" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                                    <WhatsappIcon className="w-7 h-7 fill-fwhite hover:fill-[#128C7E] transition-colors duration-200" />
+                                </a>
+                            </FrostedGlass>
+                        </div>
+                        <div className="navGrid">
+                            <FrostedGlass className="p-4 rounded-2xl">
+                                <a href="https://github.com/Valweii/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                    <GithubIcon className="w-7 h-7 fill-fwhite hover:fill-[#0969DA] transition-colors duration-200" />
+                                </a>
+                            </FrostedGlass>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
