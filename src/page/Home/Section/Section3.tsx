@@ -5,11 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 import FrostedGlass from "../../../components/FrostedGlass"
- import lumosImg from "../../../assets/lumos.png"
- import hgImg from "../../../assets/hg.png"
- import startImg from "../../../assets/startwu.png"
- import valcordImg from "../../../assets/valcord.png"
- import aiImg from "../../../assets/ai.png"
+ import lumosImg from "../../../assets/lumos.avif"
+ import hgImg from "../../../assets/hg.avif"
+ import startImg from "../../../assets/startwu.avif"
+ import valcordImg from "../../../assets/valcord.avif"
+ import aiImg from "../../../assets/ai.avif"
 
  const projects = [
     {

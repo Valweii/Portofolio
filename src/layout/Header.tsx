@@ -74,8 +74,8 @@ export default function Header (){
 
     return (
         <>
-            <header ref={headerRef} className="w-full h-fit px-18 py-12 bg-transparent flex justify-between items-center fixed top-0 z-50 text-white">
-                <div className="hidden md:flex gap-8 py-2 w-1/3 justify-center">
+            <header ref={headerRef} className="w-full h-fit px-18 py-4 bg-transparent flex justify-between items-center fixed top-0 z-50 text-white">
+                <FrostedGlass className="hidden md:flex gap-8 py-2 w-1/3 justify-center" hover={false}>
                     <div className="relative overflow-hidden cursor-pointer" onClick={() => scrollToSection('about')}>
                         <HoveredText text="About" icon="topRight" className="text-fwhite tracking-wider text-lg py-2" underline={true}/>
                         <div className="header-reveal-box absolute inset-0 bg-fwhite z-10 pointer-events-none" />
@@ -88,7 +88,7 @@ export default function Header (){
                         <HoveredText text="Experience" icon="topRight" className="text-fwhite tracking-wider text-lg py-2" underline={true}/>
                         <div className="header-reveal-box absolute inset-0 bg-fwhite z-10 pointer-events-none" />
                     </div>
-                </div>
+                </FrostedGlass>
 
                 <div className="hidden md:flex items-center w-1/3 justify-end">
                     <FrostedGlass className="p-4 rounded-2xl">
@@ -101,7 +101,7 @@ export default function Header (){
                             <WhatsappIcon className="w-5 h-5 fill-fwhite hover:fill-[#128C7E] transition-all duration-200" />
                         </a>
                     </FrostedGlass>
-                    <FrostedGlass className="p-4 rounded-2xl">
+                    <FrostedGlass className="p-4 rounded-2xl" hover={false}>
                         <a href="https://github.com/Valweii/" target="_blank" className="hover:scale-110 transition-transform duration-200" aria-label="Gmail">
                             <GithubIcon className="w-5 h-5 fill-fwhite hover:fill-[#0969DA] transition-all duration-200" />
                         </a>
@@ -111,7 +111,7 @@ export default function Header (){
                 {/* Mobile Hamburger */}
                 <button 
                     onClick={() => setMobileOpen(!mobileOpen)} 
-                    className="relative z-[100] flex md:hidden flex-col justify-center items-center w-8 h-8 space-y-2 focus:outline-none ml-auto"
+                    className="absolute top-10 right-10 z-100 flex md:hidden flex-col justify-center items-center w-8 h-8 space-y-2 focus:outline-none ml-auto"
                 >
                     <span className={`block w-8 h-0.5 bg-white transition-transform duration-300 ${mobileOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
                     <span className={`block w-8 h-0.5 bg-white transition-opacity duration-300 ${mobileOpen ? 'opacity-0' : ''}`}></span>

@@ -97,8 +97,6 @@ export default function Home() {
             <Section2 />
             <Section3 />
             <Section4 />
-            {/* Ambient light pulsing overlay */}
-            <div className="ambient-glow" />
         </main>
     )
 }
