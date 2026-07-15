@@ -91,12 +91,12 @@ export default function Header (){
                 </FrostedGlass>
 
                 <div className="hidden md:flex items-center w-1/3 justify-end">
-                    <FrostedGlass className="p-4 rounded-2xl">
+                    <FrostedGlass className="p-4 rounded-2xl" hover={false}>
                         <a href="https://www.instagram.com/valdricheag/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200" aria-label="Instagram">
                             <InstagramIcon className="w-5 h-5 fill-fwhite hover:fill-[#C13584] transition-colors duration-200" />
                         </a>
                     </FrostedGlass>
-                    <FrostedGlass className="p-4 rounded-2xl">
+                    <FrostedGlass className="p-4 rounded-2xl" hover={false}>
                         <a href="https://api.whatsapp.com/send?phone=6287819970882" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200" aria-label="WhatsApp">
                             <WhatsappIcon className="w-5 h-5 fill-fwhite hover:fill-[#128C7E] transition-all duration-200" />
                         </a>
