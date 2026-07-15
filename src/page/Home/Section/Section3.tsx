@@ -10,6 +10,7 @@ import FrostedGlass from "../../../components/FrostedGlass"
  import startImg from "../../../assets/startwu.avif"
  import valcordImg from "../../../assets/valcord.avif"
  import aiImg from "../../../assets/ai.avif"
+ import valcordDemoVid from "../../../assets/valcord-demo.webm"
 
  const projects = [
     {
@@ -54,7 +55,8 @@ import FrostedGlass from "../../../components/FrostedGlass"
         - Dynamic Frontend Architecture: Developed a highly responsive, interactive user interface utilizing React and Tailwind CSS, integrating GSAP for fluid micro-animations to provide a premium, native-app experience.`,
         image: valcordImg,
         link: "",
-        github: ["https://github.com/Valweii/valcord-api", "https://github.com/Valweii/valcord-client"]
+        github: ["https://github.com/Valweii/valcord-api", "https://github.com/Valweii/valcord-client"],
+        video: valcordDemoVid
     },
     {
         title: "Human Pose Manipulation using LoRA",
@@ -149,6 +151,11 @@ import FrostedGlass from "../../../components/FrostedGlass"
                                 {selectedProject.link && (
                                     <a href={selectedProject.link} target="_blank" rel="noreferrer" className="px-6 py-3 bg-white text-black rounded-full font-bold font-afacad hover:bg-white/90 transition-colors">
                                         Visit Website
+                                    </a>
+                                )}
+                                {selectedProject.video && (
+                                    <a href={selectedProject.video} target="_blank" rel="noreferrer" className="px-6 py-3 bg-white text-black rounded-full font-bold font-afacad hover:bg-white/90 transition-colors">
+                                        Watch Demo
                                     </a>
                                 )}
                                 {Array.isArray(selectedProject.github) ? (
